@@ -27,3 +27,5 @@ let defaultProject = new project("Default");
 defaultProject.addTask(task1);
 
 console.log(defaultProject);
+
+console.log(defaultProject.name);
