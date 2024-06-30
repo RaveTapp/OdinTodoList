@@ -3,7 +3,11 @@ import { projects, task, project, createProject} from"./todos.js";
 let content = document.querySelector("#content");
 
 export function projectsLoad(){
-    content.appendChild(createProjectDiv(projects[0]));
+    
+    for(let i = 0; i < projects.length; i++){
+        content.appendChild(createProjectDiv(projects[i]));
+    }
+    
 
 }
 

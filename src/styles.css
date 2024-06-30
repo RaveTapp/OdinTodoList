@@ -22,9 +22,13 @@ header {
 #content {
     margin: 32px;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 50vw;
+    gap: 32px;
+    justify-content: center;
 }
 
 .project {
     background-color: var(--light-orange-color);
+    border-radius: 12px;
+    padding: 12px;
 }
