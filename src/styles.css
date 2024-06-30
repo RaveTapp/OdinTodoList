@@ -1,0 +1,17 @@
+:root {
+    --main-color: lightblue;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    gap: 8vw;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-color);
+    padding: 12px;
+}
