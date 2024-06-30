@@ -1,5 +1,8 @@
 :root {
-    --main-color: lightblue;
+    --main-color: #155263;
+    --orange-color: #ff6f3c;
+    --light-orange-color: #ff9a3c;
+    --yellow-color: #ffc93c;
 }
 
 * {
@@ -14,4 +17,14 @@ header {
     align-items: center;
     background-color: var(--main-color);
     padding: 12px;
+}
+
+#content {
+    margin: 32px;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.project {
+    background-color: var(--light-orange-color);
 }
