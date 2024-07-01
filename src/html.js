@@ -1,12 +1,14 @@
 import { projects, project, createProject} from "./todos.js";
 import { format } from "date-fns";
+import plusIcon from './icons/plus.svg';
+import {userCreateTask} from "./logic.js";
 
 let content = document.querySelector("#content");
 
 export function projectsLoad(){
     content.innerHTML = "";
     for(let i = 0; i < projects.length; i++){
-        let projectDiv = createProjectDiv(projects[i]);
+        let projectDiv = createProjectDiv(projects[i], i);
         projectDiv.setAttribute("data-num", i);
         content.appendChild(projectDiv);
     }
@@ -14,7 +16,7 @@ export function projectsLoad(){
 
 }
 
-function createProjectDiv(project){
+function createProjectDiv(project, i){
     let div = document.createElement("div");
     div.classList.add("project");
 
@@ -40,6 +42,13 @@ function createProjectDiv(project){
         taskDiv.classList.add(element.priority);
         div.appendChild(taskDiv);
     });
+
+    let plusIconElem = new Image();
+    plusIconElem.src = plusIcon;
+    plusIconElem.classList.add("plus");
+    plusIconElem.addEventListener("click", () => userCreateTask(i));
+    div.appendChild(plusIconElem);
+    
 
     return div;
 }
