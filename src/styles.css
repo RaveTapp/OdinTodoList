@@ -77,6 +77,7 @@ img.plus:hover, .modal-content input:hover {
     padding: 32px;
     border-radius: 20px;
     width: 40vw;
+    box-shadow: 6px 6px 10px black;
 }
 
 .modal-content form {

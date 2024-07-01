@@ -14,8 +14,8 @@ export class project {
         this.name = name;
     }
 
-    addTask(task){
-        this.tasks.push(task);
+    addTask(title,desc,date,prio){
+        this.tasks.push(new task(title, desc, date, prio));
         saveProjects();
     }
 }
@@ -58,17 +58,12 @@ function loadProjects(){
         
         });
     } else {
-        let task1 = new task("Clean the house", "Vaccum, sweep the floors, make bed, wash dishes", new Date("2024-07-05"), "medium");
-        let task2 = new task("Cut the grass", "Use lawnmower", new Date("2024-07-02"), "low");
-        let task3 = new task("Call friend", "Make plans for the weekend", new Date("2024-07-05"), "low");
-        let task4 = new task("Call best friend", "Make plans for tommorow", new Date("2024-07-02"), "high");
-    
         let defaultProject = createProject("Default project");
-        projects[0].addTask(task1);
-        defaultProject.addTask(task2);
+        projects[0].addTask("Clean the house", "Vaccum, sweep the floors, make bed, wash dishes", new Date("2024-07-05"), "medium");
+        defaultProject.addTask("Cut the grass", "Use lawnmower", new Date("2024-07-02"), "low");
     
         let socialize = createProject("Socialize");
-        socialize.addTask(task3);
-        socialize.addTask(task4);
+        socialize.addTask("Call friend", "Make plans for the weekend", new Date("2024-07-05"), "low");
+        socialize.addTask("Call best friend", "Make plans for tommorow", new Date("2024-07-02"), "high");
     }
 }

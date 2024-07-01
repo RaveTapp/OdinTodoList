@@ -5,7 +5,7 @@ import {userCreateTask} from "./logic.js";
 
 let content = document.querySelector("#content");
 
-export function projectsLoad(){
+export function projectsLoadHTML(){
     content.innerHTML = "";
     for(let i = 0; i < projects.length; i++){
         let projectDiv = createProjectDiv(projects[i], i);
@@ -60,7 +60,6 @@ document.querySelector("button.add-project").addEventListener("click", () => {
     projectsLoad();
 });
 
-
 //Add task
 export function modalPrompt(id){
     let modalDiv = document.createElement("div");
@@ -68,7 +67,6 @@ export function modalPrompt(id){
     let modalContent = document.createElement("div");
     modalContent.classList.add("modal-content");
     
-
     //let closeBtn = document.createElement("span");
     //closeBtn.classList.add("close");
 
@@ -78,13 +76,13 @@ export function modalPrompt(id){
     let inputDiv2 = createInputDiv("Description:", "modal-desc", "text", false);
     let inputDiv3 = createInputDiv("Due date:", "modal-date", "date", true);
 
+    //Select
+    let selectDiv = document.createElement("div");
+
     let label4 = document.createElement("label");
     label4.textContent = "Priority:";
     label4.setAttribute("for", "modal-prio");
     
-    //Select
-    let selectDiv = document.createElement("div");
-
     let select = document.createElement("select");
     select.setAttribute("name", "prio");
     select.id = "modal-prio";
@@ -98,19 +96,35 @@ export function modalPrompt(id){
     let option3 = document.createElement("option");
     option3.setAttribute("value", "low");
     option3.textContent = "Low";
+
+    //Submit
+    let submit = document.createElement("input");
+    submit.setAttribute("type", "submit");
+    submit.setAttribute("value", "Add task");
     
+    //Events
+    modalDiv.addEventListener("click", (event) =>{
+        if(event.target == modalDiv){
+            document.querySelector("div.modal").remove();
+        } else if (event.target == submit && form.checkValidity()){
+            event.preventDefault();
+            const input1 = inputDiv1.querySelector("input").value;
+            const input2 = inputDiv2.querySelector("input").value;
+            const input3 = inputDiv3.querySelector("input").value;
+            userCreateTask(id, input1, input2, input3, select.value);
+
+            document.querySelector("div.modal").remove();
+            projectsLoadHTML();
+        }
+    });
+
+    //Append
     select.appendChild(option1);
     select.appendChild(option2);
     select.appendChild(option3);
 
     selectDiv.appendChild(label4);
     selectDiv.appendChild(select);
-
-    //Submit
-    let submit = document.createElement("input");
-    submit.setAttribute("type", "submit");
-    submit.setAttribute("value", "Add task");
-
 
     form.appendChild(inputDiv1);
     form.appendChild(inputDiv2);

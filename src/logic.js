@@ -1,8 +1,7 @@
 import { projects, project, createProject} from "./todos.js";
-import { modalPrompt } from "./html.js";
 
-export function userCreateTask(id){
-    console.log("Create" + id);
-    modalPrompt();
+export function userCreateTask(id, title, desc, date, prio){
+    //console.log(`${id} ${title} ${desc} ${date} ${prio}`);
+    projects[id].addTask(title, desc, date, prio);
 }
 
