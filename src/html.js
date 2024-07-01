@@ -63,15 +63,14 @@ document.querySelector("button.add-project").addEventListener("click", () => {
 
 //Add task
 export function modalPrompt(id){
-    console.log("prompt");
     let modalDiv = document.createElement("div");
     modalDiv.classList.add("modal");
     let modalContent = document.createElement("div");
     modalContent.classList.add("modal-content");
     
 
-    let closeBtn = document.createElement("span");
-    closeBtn.classList.add("close");
+    //let closeBtn = document.createElement("span");
+    //closeBtn.classList.add("close");
 
     let form = document.createElement("form");
 
@@ -83,18 +82,48 @@ export function modalPrompt(id){
     label4.textContent = "Priority:";
     label4.setAttribute("for", "modal-prio");
     
+    //Select
+    let selectDiv = document.createElement("div");
+
+    let select = document.createElement("select");
+    select.setAttribute("name", "prio");
+    select.id = "modal-prio";
+
+    let option1 = document.createElement("option");
+    option1.setAttribute("value", "high");
+    option1.textContent = "High";
+    let option2 = document.createElement("option");
+    option2.setAttribute("value", "medium");
+    option2.textContent = "Medium";
+    let option3 = document.createElement("option");
+    option3.setAttribute("value", "low");
+    option3.textContent = "Low";
     
-    
+    select.appendChild(option1);
+    select.appendChild(option2);
+    select.appendChild(option3);
+
+    selectDiv.appendChild(label4);
+    selectDiv.appendChild(select);
+
+    //Submit
     let submit = document.createElement("input");
     submit.setAttribute("type", "submit");
     submit.setAttribute("value", "Add task");
 
 
+    form.appendChild(inputDiv1);
+    form.appendChild(inputDiv2);
+    form.appendChild(inputDiv3);
+    form.appendChild(selectDiv);
+    form.appendChild(submit);
 
-    modalContent.appendChild(closeBtn);
+    //modalContent.appendChild(closeBtn);
+    modalContent.appendChild(form);
+
     modalDiv.appendChild(modalContent);
 
-    content.appendChild(modalDiv);
+    document.querySelector("body").appendChild(modalDiv);
 }
 
 function createInputDiv(labelText, id, inputType, isRequired){
