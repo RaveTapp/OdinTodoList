@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "date-fns": "^3.6.0",
     "webpack": "^5.92.1"
   },
   "name": "odin-todo-list",
@@ -10,7 +11,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --progress --mode=production",
     "watch": "webpack --progress --watch"
-
   },
   "repository": {
     "type": "git",

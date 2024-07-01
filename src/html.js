@@ -1,4 +1,5 @@
-import { projects, task, project, createProject} from"./todos.js";
+import { projects, task, project, createProject} from "./todos.js";
+import { format } from "date-fns";
 
 let content = document.querySelector("#content");
 
@@ -26,9 +27,13 @@ function createProjectDiv(project){
         h3.textContent = element.title;
         taskDiv.appendChild(h3);
 
-        let desc = document.createElement("p");
+        let dueDate = document.createElement("p");
+        dueDate.textContent = "Due: " + format(element.dueDate, "do MMMM yyyy");
+        taskDiv.appendChild(dueDate);
+
+        /*let desc = document.createElement("p");
         desc.textContent = element.description;
-        taskDiv.appendChild(desc);
+        taskDiv.appendChild(desc);*/
 
         taskDiv.classList.add(element.priority);
         div.appendChild(taskDiv);

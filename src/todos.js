@@ -27,10 +27,10 @@ export function createProject(name) {
     return newProject;
 }
 
-let task1 = new task("Clean the house", "Vaccum, sweep the floors, make bed, wash dishes", "2024-07-05", "medium");
-let task2 = new task("Cut the grass", "Use lawnmower", "2024-07-02", "low");
-let task3 = new task("Call friend", "Make plans for the weekend", "2024-07-05", "low");
-let task4 = new task("Call best friend", "Make plans for tommorow", "2024-07-02", "high");
+let task1 = new task("Clean the house", "Vaccum, sweep the floors, make bed, wash dishes", new Date("2024-07-05"), "medium");
+let task2 = new task("Cut the grass", "Use lawnmower", new Date("2024-07-02"), "low");
+let task3 = new task("Call friend", "Make plans for the weekend", new Date("2024-07-05"), "low");
+let task4 = new task("Call best friend", "Make plans for tommorow", new Date("2024-07-02"), "high");
 
 let defaultProject = createProject("Default project");
 projects[0].addTask(task1);
