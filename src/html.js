@@ -3,7 +3,7 @@ import { projects, task, project, createProject} from"./todos.js";
 let content = document.querySelector("#content");
 
 export function projectsLoad(){
-    
+    content.innerHTML = "";
     for(let i = 0; i < projects.length; i++){
         content.appendChild(createProjectDiv(projects[i]));
     }
@@ -36,3 +36,10 @@ function createProjectDiv(project){
 
     return div;
 }
+
+//Click events
+document.querySelector("button.add-project").addEventListener("click", () => {
+    let name = prompt("Enter project name: ");
+    createProject(name);
+    projectsLoad();
+});
