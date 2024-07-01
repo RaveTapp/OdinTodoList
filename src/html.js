@@ -6,7 +6,9 @@ let content = document.querySelector("#content");
 export function projectsLoad(){
     content.innerHTML = "";
     for(let i = 0; i < projects.length; i++){
-        content.appendChild(createProjectDiv(projects[i]));
+        let projectDiv = createProjectDiv(projects[i]);
+        projectDiv.setAttribute("data-num", i);
+        content.appendChild(projectDiv);
     }
     
 
