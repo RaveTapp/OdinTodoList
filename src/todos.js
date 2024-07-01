@@ -30,7 +30,7 @@ loadProjects();
 
 //Functions
 export function createProject(name) {
-    let newProject = new project(name);
+    const newProject = new project(name);
     projects.push(newProject);
 
     saveProjects();
@@ -44,13 +44,13 @@ function saveProjects(){
 
 function loadProjects(){
     if("projects" in localStorage){
-        let p = JSON.parse(localStorage.getItem("projects"));
+        const p = JSON.parse(localStorage.getItem("projects"));
         projects.length = 0;
         
         p.forEach(element => {
-            let pp = new project(element.name);
+            const pp = new project(element.name);
             for(let i = 0; i < element.tasks.length; i++){
-                let t = element.tasks[i];
+                const t = element.tasks[i];
                 pp.tasks.push(new task(t.title, t.description, t.dueDate, t.priority));
     
             }
@@ -58,11 +58,11 @@ function loadProjects(){
         
         });
     } else {
-        let defaultProject = createProject("Default project");
+        const defaultProject = createProject("Default project");
         projects[0].addTask("Clean the house", "Vaccum, sweep the floors, make bed, wash dishes", new Date("2024-07-05"), "medium");
         defaultProject.addTask("Cut the grass", "Use lawnmower", new Date("2024-07-02"), "low");
     
-        let socialize = createProject("Socialize");
+        const socialize = createProject("Socialize");
         socialize.addTask("Call friend", "Make plans for the weekend", new Date("2024-07-05"), "low");
         socialize.addTask("Call best friend", "Make plans for tommorow", new Date("2024-07-02"), "high");
     }
