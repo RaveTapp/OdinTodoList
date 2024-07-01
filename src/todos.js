@@ -12,6 +12,7 @@ export class task {
 let task1 = new task("Clean the house", "Vaccum, sweep the floors, make bed, wash dishes", "2024-07-05", "medium");
 let task2 = new task("Cut the grass", "Use lawnmower", "2024-07-02", "low");
 let task3 = new task("Call friend", "Make plans for the weekend", "2024-07-05", "low");
+let task4 = new task("Call best friend", "Make plans for tommorow", "2024-07-02", "high");
 
 export class project {
     tasks = [];
@@ -35,6 +36,8 @@ defaultProject.addTask(task2);
 
 let socialize = createProject("Socialize");
 socialize.addTask(task3);
+socialize.addTask(task4);
+
 
 projects.push(defaultProject);
 projects.push(socialize);

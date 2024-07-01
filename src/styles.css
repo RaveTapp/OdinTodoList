@@ -8,6 +8,11 @@
 * {
     margin: 0;
     box-sizing: border-box;
+    line-height: 1.5;
+}
+
+body {
+    font-family:'Courier New', Courier, monospace;
 }
 
 header {
@@ -31,4 +36,16 @@ header {
     background-color: var(--light-orange-color);
     border-radius: 12px;
     padding: 12px;
+}
+
+.low h3 {
+    color: green;
+}
+
+.medium h3 {
+    color: yellow;
+}
+
+.high h3 {
+    color: red;
 }

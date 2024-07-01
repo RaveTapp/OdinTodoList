@@ -17,8 +17,22 @@ function createProjectDiv(project){
 
     let headline = document.createElement("h2");
     headline.textContent = project.name;
-    
     div.appendChild(headline);
+
+    project.tasks.forEach(element => {
+        let taskDiv = document.createElement("div");
+
+        let h3 = document.createElement("h3");
+        h3.textContent = element.title;
+        taskDiv.appendChild(h3);
+
+        let desc = document.createElement("p");
+        desc.textContent = element.description;
+        taskDiv.appendChild(desc);
+
+        taskDiv.classList.add(element.priority);
+        div.appendChild(taskDiv);
+    });
 
     return div;
 }
