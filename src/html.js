@@ -1,4 +1,4 @@
-import { projects, task, project, createProject} from "./todos.js";
+import { projects, project, createProject} from "./todos.js";
 import { format } from "date-fns";
 
 let content = document.querySelector("#content");
