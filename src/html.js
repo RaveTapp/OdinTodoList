@@ -150,10 +150,15 @@ export function modalPrompt(id) {
       const input1 = inputDiv1.querySelector("input").value;
       const input2 = inputDiv2.querySelector("input").value;
       const input3 = inputDiv3.querySelector("input").value;
-      userCreateTask(id, input1, input2, input3, select.value);
+      
 
-      document.querySelector("div.modal").remove();
-      projectsLoadHTML();
+      if(projects[id].tasks.find((item) => item.title == input1)){
+        alert("Task with this name already exists.");
+      } else {
+        userCreateTask(id, input1, input2, input3, select.value);
+        document.querySelector("div.modal").remove();
+        projectsLoadHTML();
+      }
     }
   });
 
