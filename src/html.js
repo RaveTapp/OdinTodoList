@@ -48,6 +48,8 @@ function createProjectDiv(project, i) {
           removeExpanded(taskDiv);
         }
       } else {
+        document.querySelectorAll(".project > div.expanded").forEach((currentValue) => removeExpanded(currentValue));
+
         const desc = document.createElement("p");
         desc.textContent = element.description;
         desc.classList.add("desc");
@@ -62,9 +64,11 @@ function createProjectDiv(project, i) {
         const closeIconElem = new Image();
         closeIconElem.src = closeIcon;
         closeIconElem.classList.add("close");
+
+        taskDiv.classList.add("expanded");
         taskDiv.appendChild(closeIconElem);
       }
-      taskDiv.classList.toggle("expanded");
+      
     });
 
     div.appendChild(taskDiv);
@@ -83,6 +87,7 @@ function removeExpanded(div) {
   div.querySelector("p.desc").remove();
   div.querySelector("img.check").remove();
   div.querySelector("img.close").remove();
+  div.classList.remove("expanded");
 }
 
 //Click events
