@@ -16,12 +16,17 @@ export class project {
 
   addTask(title, desc, date, prio) {
     this.tasks.push(new task(title, desc, date, prio));
-    this.tasks.sort((a, b) => new Date(a.dueDate).getTime() > new Date(b.dueDate).getTime() ? 1 : -1);
+    this.tasks.sort((a, b) =>
+      new Date(a.dueDate).getTime() > new Date(b.dueDate).getTime() ? 1 : -1
+    );
     saveProjects();
   }
 
-  removeTask(title){
-    this.tasks.splice(this.tasks.findIndex(item => item.title === title), 1);
+  removeTask(title) {
+    this.tasks.splice(
+      this.tasks.findIndex((item) => item.title === title),
+      1
+    );
     saveProjects();
   }
 }
@@ -60,8 +65,8 @@ function loadProjects() {
       projects.push(pp);
     });
   } else {
-    const defaultProject = createProject("Default project");
-    projects[0].addTask(
+    createProject("Default project");
+    /*defaultProject.addTask(
       "Clean the house",
       "Vaccum, sweep the floors, make bed, wash dishes",
       new Date("2024-07-05"),
@@ -86,7 +91,7 @@ function loadProjects() {
       "Make plans for tommorow",
       new Date("2024-07-02"),
       "high"
-    );
+    );*/
   }
 }
 

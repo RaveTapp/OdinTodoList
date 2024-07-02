@@ -70,7 +70,9 @@ header {
   color: red;
 }
 
-img.plus, img.check, img.close {
+img.plus,
+img.check,
+img.close {
   width: 32px;
   height: 32px;
   border: 2px solid black;
