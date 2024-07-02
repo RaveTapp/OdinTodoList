@@ -16,6 +16,7 @@ export class project {
 
   addTask(title, desc, date, prio) {
     this.tasks.push(new task(title, desc, date, prio));
+    this.tasks.sort((a, b) => new Date(a.dueDate).getTime() > new Date(b.dueDate).getTime() ? 1 : -1);
     saveProjects();
   }
 
@@ -90,5 +91,5 @@ function loadProjects() {
 }
 
 export function userCreateTask(id, title, desc, date, prio) {
-  projects[id].addTask(title, desc, date, prio);
+  projects[id].addTask(title, desc, new Date(date), prio);
 }

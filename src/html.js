@@ -39,7 +39,6 @@ function createProjectDiv(project, i) {
     taskDiv.addEventListener("click", (event) => {
       if(taskDiv.classList.contains("expanded")){
         if(event.target == div.querySelector("img.check") || event.target == div.querySelector("img.close")){
-          //removeExpanded(taskDiv);
           console.log("btn");
           project.removeTask(element.title);
           projectsLoadHTML();
@@ -56,14 +55,12 @@ function createProjectDiv(project, i) {
         const checkIconElem = new Image();
         checkIconElem.src = checkIcon;
         checkIconElem.classList.add('check');
-        //checkIconElem.addEventListener('click', () => removeExpanded(taskDiv));
         
         taskDiv.appendChild(checkIconElem);
 
         const closeIconElem = new Image();
         closeIconElem.src = closeIcon;
         closeIconElem.classList.add('close');
-        //closeIconElem.addEventListener('click', () => removeExpanded(taskDiv));
         taskDiv.appendChild(closeIconElem);
       }
       taskDiv.classList.toggle('expanded');
