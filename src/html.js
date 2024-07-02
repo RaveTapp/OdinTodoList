@@ -38,6 +38,11 @@ function createProjectDiv(project, i) {
         taskDiv.appendChild(desc);*/
 
     taskDiv.classList.add(element.priority);
+
+    taskDiv.addEventListener("click", () => {
+      console.log("click");
+    });
+
     div.appendChild(taskDiv);
   });
 

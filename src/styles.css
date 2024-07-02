@@ -27,6 +27,7 @@ header {
   padding: 6px 10px;
   font-size: 1rem;
   font-weight: bold;
+  cursor: pointer;
 }
 
 #content {
@@ -40,7 +41,17 @@ header {
 .project {
   background-color: var(--light-orange-color);
   border-radius: 12px;
-  padding: 12px;
+  padding: 24px;
+}
+
+.project > div {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.project > div > * {
+  display: inline;
 }
 
 .low h3 {
@@ -60,6 +71,7 @@ img.plus {
   height: 32px;
   border: 2px solid black;
   border-radius: 100%;
+  cursor: pointer;
 }
 
 img.plus:hover,
