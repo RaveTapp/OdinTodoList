@@ -88,3 +88,7 @@ function loadProjects() {
     );
   }
 }
+
+export function userCreateTask(id, title, desc, date, prio) {
+  projects[id].addTask(title, desc, date, prio);
+}

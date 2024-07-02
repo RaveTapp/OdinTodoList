@@ -1,9 +1,8 @@
-import { projects, createProject } from './todos.js';
+import { projects, createProject, userCreateTask } from './todos.js';
 import { format } from 'date-fns';
 import plusIcon from './icons/plus.svg';
 import checkIcon from './icons/check.svg';
 import closeIcon from './icons/close.svg';
-import { userCreateTask } from './logic.js';
 
 const content = document.querySelector("#content");
 
