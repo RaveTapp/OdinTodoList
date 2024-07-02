@@ -21,6 +21,14 @@ header {
   padding: 12px;
 }
 
+.add-project {
+  border-radius: 12px;
+  border: none;
+  padding: 6px 10px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
 #content {
   margin: 32px;
   display: grid;
@@ -55,7 +63,8 @@ img.plus {
 }
 
 img.plus:hover,
-.modal-content input:hover {
+.modal-content input:hover,
+.add-project:hover {
   box-shadow: 2px 2px 6px black;
 }
 
