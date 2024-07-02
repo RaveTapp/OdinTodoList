@@ -18,6 +18,11 @@ export class project {
     this.tasks.push(new task(title, desc, date, prio));
     saveProjects();
   }
+
+  removeTask(title){
+    this.tasks.splice(this.tasks.findIndex(item => item.title === title), 1);
+    saveProjects();
+  }
 }
 
 //Init

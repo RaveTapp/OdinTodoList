@@ -1,7 +1,9 @@
-import { projects, createProject } from "./todos.js";
-import { format } from "date-fns";
-import plusIcon from "./icons/plus.svg";
-import { userCreateTask } from "./logic.js";
+import { projects, createProject } from './todos.js';
+import { format } from 'date-fns';
+import plusIcon from './icons/plus.svg';
+import checkIcon from './icons/check.svg';
+import closeIcon from './icons/close.svg';
+import { userCreateTask } from './logic.js';
 
 const content = document.querySelector("#content");
 
@@ -35,17 +37,37 @@ function createProjectDiv(project, i) {
 
     taskDiv.classList.add(element.priority);
 
-    taskDiv.addEventListener("click", () => {
-      console.log("click");
+    taskDiv.addEventListener("click", (event) => {
       if(taskDiv.classList.contains("expanded")){
-        taskDiv.querySelector("p.desc").remove();
+        if(event.target == div.querySelector("img.check") || event.target == div.querySelector("img.close")){
+          //removeExpanded(taskDiv);
+          console.log("btn");
+          project.removeTask(element.title);
+          projectsLoadHTML();
+        } else {
+          removeExpanded(taskDiv);
+          console.log("click");
+        }
       } else {
         const desc = document.createElement("p");
         desc.textContent = element.description;
-        desc.classList.add("desc");
+        desc.classList.add('desc');
         taskDiv.appendChild(desc);
+
+        const checkIconElem = new Image();
+        checkIconElem.src = checkIcon;
+        checkIconElem.classList.add('check');
+        //checkIconElem.addEventListener('click', () => removeExpanded(taskDiv));
+        
+        taskDiv.appendChild(checkIconElem);
+
+        const closeIconElem = new Image();
+        closeIconElem.src = closeIcon;
+        closeIconElem.classList.add('close');
+        //closeIconElem.addEventListener('click', () => removeExpanded(taskDiv));
+        taskDiv.appendChild(closeIconElem);
       }
-      taskDiv.classList.toggle("expanded");
+      taskDiv.classList.toggle('expanded');
     });
 
     div.appendChild(taskDiv);
@@ -53,11 +75,17 @@ function createProjectDiv(project, i) {
 
   const plusIconElem = new Image();
   plusIconElem.src = plusIcon;
-  plusIconElem.classList.add("plus");
-  plusIconElem.addEventListener("click", () => modalPrompt(i));
+  plusIconElem.classList.add('plus');
+  plusIconElem.addEventListener('click', () => modalPrompt(i));
   div.appendChild(plusIconElem);
 
   return div;
+}
+
+function removeExpanded(div){
+  div.querySelector("p.desc").remove();
+  div.querySelector("img.check").remove();
+  div.querySelector("img.close").remove();
 }
 
 //Click events
