@@ -33,14 +33,19 @@ function createProjectDiv(project, i) {
     dueDate.textContent = "Due: " + format(element.dueDate, "do MMMM yyyy");
     taskDiv.appendChild(dueDate);
 
-    /*const desc = document.createElement("p");
-        desc.textContent = element.description;
-        taskDiv.appendChild(desc);*/
-
     taskDiv.classList.add(element.priority);
 
     taskDiv.addEventListener("click", () => {
       console.log("click");
+      if(taskDiv.classList.contains("expanded")){
+        taskDiv.querySelector("p.desc").remove();
+      } else {
+        const desc = document.createElement("p");
+        desc.textContent = element.description;
+        desc.classList.add("desc");
+        taskDiv.appendChild(desc);
+      }
+      taskDiv.classList.toggle("expanded");
     });
 
     div.appendChild(taskDiv);
